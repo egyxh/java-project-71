@@ -17,6 +17,10 @@ application {
     mainClass.set("hexlet.code.App")
 }
 
+tasks.compileJava {
+    options.compilerArgs.add("-Aproject=${project.group}/${project.name}")
+}
+
 dependencies {
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
@@ -26,6 +30,9 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.30")
     testCompileOnly("org.projectlombok:lombok:1.18.30")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+    implementation("info.picocli:picocli:4.7.7")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
+    annotationProcessor("info.picocli:picocli-codegen:4.7.7")
 }
 
 tasks.test {
