@@ -5,6 +5,7 @@ plugins {
     id("com.diffplug.spotless") version "6.25.0"
     id("jacoco")
     id("org.sonarqube") version "6.2.0.5505"
+    checkstyle
 }
 
 group = "hexlet.code"
@@ -27,7 +28,6 @@ dependencies {
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-
     compileOnly("org.projectlombok:lombok:1.18.30")
     annotationProcessor("org.projectlombok:lombok:1.18.30")
     testCompileOnly("org.projectlombok:lombok:1.18.30")
@@ -50,8 +50,7 @@ tasks.withType<JavaExec> {
     standardInput = System.`in`
 }
 
-tasks.withType<Checkstyle> {
-    configFile = file("config/checkstyle/checkstyle.xml")
+tasks.withType<Checkstyle>().configureEach {
     ignoreFailures = false
 }
 
@@ -61,6 +60,11 @@ tasks.jacocoTestReport {
         html.required.set(true)
         csv.required.set(false)
     }
+}
+
+checkstyle {
+    toolVersion = "10.12.4"
+    configFile = file("config/checkstyle/checkstyle.xml")
 }
 
 sonar {
