@@ -38,6 +38,11 @@ jobs:
         working-directory: ./app
         run: ./gradlew clean
 
+      - name: Verify Sonar Token
+        run: echo "Token length: ${#c171a224b6d45721e07caa2fe1aeb0d2b9237501}"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Build project
         working-directory: ./app
         run: ./gradlew build
@@ -46,14 +51,12 @@ jobs:
         working-directory: ./app
         run: ./gradlew test jacocoTestReport
 
-      - name: SonarQube analysis
+      - name: SonarQube Scan
         working-directory: ./app
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
         run: |
           ./gradlew sonar \
-            -Dsonar.login=$SONAR_TOKEN \
-            -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.projectKey=your-project-key \
-            -Dsonar.organization=your-org
+            -Dsonar.token=$SONAR_TOKEN \
+            -Dsonar.host.url=https://sonarcloud.io \
+            --info

@@ -77,6 +77,5 @@ sonar {
     properties {
         property("sonar.projectKey", "egyxh_java-project-71")
         property("sonar.organization", "egyxh")
-        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
