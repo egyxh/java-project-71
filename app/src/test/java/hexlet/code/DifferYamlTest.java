@@ -14,9 +14,18 @@ public class DifferYamlTest {
     }
 
     @Test
-    void testFlatJsonDiffStylish() throws Exception {
+    void testFlatYmlDiffStylish() throws Exception {
         Map<String, Object> data1 = Parser.getData("src/test/resources/file1.yml");
         Map<String, Object> data2 = Parser.getData("src/test/resources/file2.yml");
+        String expected = readFixture("expected_stylish.txt");
+        String actual = Differ.generate(data1, data2);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testFlatYamlDiffStylish() throws Exception {
+        Map<String, Object> data1 = Parser.getData("src/test/resources/file1.yaml");
+        Map<String, Object> data2 = Parser.getData("src/test/resources/file2.yaml");
         String expected = readFixture("expected_stylish.txt");
         String actual = Differ.generate(data1, data2);
         assertEquals(expected, actual);
