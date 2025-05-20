@@ -10,6 +10,9 @@
 ### Recording 3: Example of util working with nested files.
 [![asciicast](https://asciinema.org/a/VV2ITAcguNH9SJkWXOxtZCkYZ.svg)](https://asciinema.org/a/VV2ITAcguNH9SJkWXOxtZCkYZ)
 
+### Recording 4: Example of util working with -f / --format flag.
+[![asciicast](https://asciinema.org/a/wMPqF8HcWK8hlXoLxWvom0rcU.svg)](https://asciinema.org/a/wMPqF8HcWK8hlXoLxWvom0rcU)
+
 ### Badges
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=egyxh_java-project-71&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=egyxh_java-project-71)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=egyxh_java-project-71&metric=bugs)](https://sonarcloud.io/summary/new_code?id=egyxh_java-project-71)
