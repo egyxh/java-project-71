@@ -1,9 +1,9 @@
-package hexlet.code;
+package hexlet;
 import java.util.List;
 import java.util.Map;
-import hexlet.code.diff.DiffBuilder;
-import hexlet.code.formatter.Formatter;
-import hexlet.code.formatter.StylishFormatter;
+import hexlet.diff.DiffBuilder;
+import hexlet.formatter.Formatter;
+import hexlet.formatter.StylishFormatter;
 public class Differ {
     public static String generate(Map<String, Object> map1, Map<String, Object> map2) {
         try {

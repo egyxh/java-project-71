@@ -34,6 +34,10 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: ${{ runner.os }}-gradle
 
+      - name: Run unit tests
+        working-directory: ./app
+        run: ./gradlew test --info
+
       - name: Clean build
         working-directory: ./app
         run: ./gradlew clean
