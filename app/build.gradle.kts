@@ -42,23 +42,29 @@ tasks.test {
     finalizedBy(tasks.jacocoTestReport)
 }
 
-tasks.build {
-    dependsOn(tasks.clean)
-}
-
 tasks.withType<JavaExec> {
     standardInput = System.`in`
 }
 
 tasks.withType<Checkstyle>().configureEach {
     ignoreFailures = false
+    reports {
+        html.required.set(false)
+    }
+}
+
+tasks.sonar {
+    mustRunAfter(tasks.test, tasks.jacocoTestReport)
 }
 
 tasks.jacocoTestReport {
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-        csv.required.set(false)
+    mustRunAfter(tasks.test)
+    dependsOn(tasks.test)
+}
+
+tasks.clean {
+    doFirst {
+        delete("build")
     }
 }
 
