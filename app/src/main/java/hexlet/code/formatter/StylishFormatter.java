@@ -15,7 +15,7 @@ public class StylishFormatter implements Formatter {
                 case "added" -> result.append("  + ")
                         .append(key)
                         .append(": ")
-                        .append(value)
+                        .append(formatValue(value))
                         .append("\n");
                 case "removed" -> result.append("  - ")
                         .append(key)
@@ -25,24 +25,44 @@ public class StylishFormatter implements Formatter {
                 case "unchanged" -> result.append("    ")
                         .append(key)
                         .append(": ")
-                        .append(value)
+                        .append(formatValue(value))
                         .append("\n");
                 case "changed" -> {
                     result.append("  - ")
                             .append(key)
                             .append(": ")
-                            .append(item.get("oldValue"))
+                            .append(formatValue(item.get("oldValue")))
                             .append("\n");
                     result.append("  + ")
                             .append(key)
                             .append(": ")
-                            .append(item.get("newValue"))
+                            .append(formatValue(item.get("newValue")))
                             .append("\n");
+                }
+                case "nested" -> {
+                    @SuppressWarnings("unchecked")
+                    List<Map<String, Object>> subObject = (List<Map<String, Object>>) item.get("subObject");
+                    result.append("{")
+                            .append(key)
+                            .append("=")
+                            .append(format(subObject))
+                            .append("}")
+                            .append('\n');
                 }
                 default -> throw new IllegalStateException("Unexpected value: " + status);
             }
         }
         result.append("}");
         return result.toString();
+    }
+
+    private String formatValue(Object value) {
+        if (value == null) {
+            return "null";
+        }
+        if (value instanceof Map || value instanceof List) {
+            return value.toString();
+        }
+        return value.toString();
     }
 }

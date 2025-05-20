@@ -36,7 +36,7 @@ public class App implements Callable<Integer> {
             System.out.println(diff);
             return 0;
         } catch (Exception e) {
-            System.err.println("Ошибка при чтении или парсинге: " + e.getMessage());
+            System.err.println("Error while parsing: " + e.getMessage());
             e.printStackTrace();
             return 1;
         }

@@ -1,13 +1,16 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/egyxh/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/egyxh/java-project-71/actions)
 
-###Recording 1: Example of util working with flat json files.
+### Recording 1: Example of util working with flat json files.
 [![asciicast](https://asciinema.org/a/M1BX1NDZrhEC8YvZttFqzMGtA.svg)](https://asciinema.org/a/M1BX1NDZrhEC8YvZttFqzMGtA)
 
-###Recording 2: Example of util working with flat json/yml/yaml files.
+### Recording 2: Example of util working with flat json/yml/yaml files.
 [![asciicast](https://asciinema.org/a/TsMxZKRl4NYqbDFFtZ8vgp1vu.svg)](https://asciinema.org/a/TsMxZKRl4NYqbDFFtZ8vgp1vu)
 
-###Badges
+### Recording 3: Example of util working with nested files.
+[![asciicast](https://asciinema.org/a/VV2ITAcguNH9SJkWXOxtZCkYZ.svg)](https://asciinema.org/a/VV2ITAcguNH9SJkWXOxtZCkYZ)
+
+### Badges
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=egyxh_java-project-71&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=egyxh_java-project-71)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=egyxh_java-project-71&metric=bugs)](https://sonarcloud.io/summary/new_code?id=egyxh_java-project-71)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=egyxh_java-project-71&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=egyxh_java-project-71)

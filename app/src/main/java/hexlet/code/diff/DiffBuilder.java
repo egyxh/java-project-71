@@ -15,8 +15,14 @@ public class DiffBuilder {
         keys.addAll(map2.keySet());
         List<Map<String, Object>> diff = new ArrayList<>();
         for (String key : keys) {
+            Object value1 = map1.get(key);
+            Object value2 = map2.get(key);
             Map<String, Object> entry = new LinkedHashMap<>();
-            if (!map2.containsKey(key)) {
+            entry.put("key", key);
+            if (value1 instanceof Map && value2 instanceof Map) {
+                entry.put("status", "nested");
+                entry.put("subObject", build((Map<String, Object>) value1, (Map<String, Object>) value2));
+            } else if (!map2.containsKey(key)) {
                 entry.put("key", key);
                 entry.put("status", "removed");
                 entry.put("value", map1.get(key));
