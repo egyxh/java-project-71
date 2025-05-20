@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class StylishFormatter implements Formatter {
     @Override
+    @SuppressWarnings("unchecked")
     public String format(List<Map<String, Object>> diff) throws IllegalStateException {
         StringBuilder result = new StringBuilder("{\n");
         for (Map<String, Object> item : diff) {
@@ -20,7 +21,7 @@ public class StylishFormatter implements Formatter {
                 case "removed" -> result.append("  - ")
                         .append(key)
                         .append(": ")
-                        .append(value)
+                        .append(formatValue(value))
                         .append("\n");
                 case "unchanged" -> result.append("    ")
                         .append(key)
@@ -41,12 +42,11 @@ public class StylishFormatter implements Formatter {
                 }
                 case "nested" -> {
                     List<Map<String, Object>> subObject = (List<Map<String, Object>>) item.get("subObject");
-                    result.append("{")
+                    result.append("    ")
                             .append(key)
-                            .append("=")
+                            .append(": ")
                             .append(format(subObject))
-                            .append("}")
-                            .append('\n');
+                            .append("\n");
                 }
                 default -> throw new IllegalStateException("Unexpected value: " + status);
             }

@@ -61,6 +61,7 @@ public class PlainFormatter implements Formatter {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private List<Map<String, Object>> safeCastList(Object raw) {
         return (List<Map<String, Object>>) raw;
     }
