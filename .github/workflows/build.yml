@@ -50,5 +50,10 @@ jobs:
         working-directory: ./app
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew sonar
+          SONAR_HOST_URL: https://sonarcloud.io
+        run: |
+          ./gradlew sonar \
+            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.host.url=$SONAR_HOST_URL \
+            -Dsonar.projectKey=your-project-key \
+            -Dsonar.organization=your-org
