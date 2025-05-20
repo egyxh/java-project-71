@@ -1,8 +1,8 @@
-package hexlet;
+package hexlet.code;
 
-import hexlet.diff.DiffBuilder;
-import hexlet.formatter.Formatter;
-import hexlet.formatter.StylishFormatter;
+import hexlet.code.diff.DiffBuilder;
+import hexlet.code.formatter.Formatter;
+import hexlet.code.formatter.StylishFormatter;
 
 import java.util.List;
 import java.util.Map;

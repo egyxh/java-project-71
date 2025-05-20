@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.Differ;
-import hexlet.Parser;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -10,7 +8,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DifferTest {
+class DifferJsonTest {
     private static String readFixture(String fileName) throws Exception {
         return Files.readString(Path.of("src/test/resources", fileName)).trim();
     }

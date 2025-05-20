@@ -39,6 +39,7 @@ dependencies {
     annotationProcessor("info.picocli:picocli-codegen:4.7.7")
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.0")
 }
 
 tasks.test {
@@ -48,6 +49,11 @@ tasks.test {
 
 tasks.withType<JavaExec> {
     standardInput = System.`in`
+}
+
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("-Xlint:unchecked")
+    options.compilerArgs.add("-Xlint:deprecation")
 }
 
 tasks.withType<Checkstyle>().configureEach {
@@ -74,6 +80,16 @@ tasks.clean {
     doFirst {
         delete("build")
     }
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "hexlet.code.App"
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    archiveFileName.set("app.jar")
+    destinationDirectory.set(layout.buildDirectory.dir("libs"))
 }
 
 checkstyle {
