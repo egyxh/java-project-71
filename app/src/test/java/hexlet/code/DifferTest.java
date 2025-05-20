@@ -14,29 +14,45 @@ class DifferTest {
     }
 
     @Test
-    void testFlatJsonDiffStylish() throws Exception {
+    void testJsonDiffStylish() throws Exception {
         Map<String, Object> data1 = Parser.getData("src/test/resources/file1.json");
         Map<String, Object> data2 = Parser.getData("src/test/resources/file2.json");
-        String expected = readFixture("expected_stylish.txt");
-        String actual = Differ.generate(data1, data2);
-        assertEquals(expected, actual);
+
+        String expectedStylish = readFixture("expected_stylish.txt");
+        String actualStylish = Differ.generate(data1, data2, "stylish");
+
+        String expectedPlain = readFixture("expected_plain.txt");
+        String actualPlain = Differ.generate(data1, data2, "plain");
+
+        assertEquals(expectedStylish, actualStylish);
+        assertEquals(expectedPlain, actualPlain);
     }
 
     @Test
-    void testFlatYmlDiffStylish() throws Exception {
+    void testYmlDiffStylish() throws Exception {
         Map<String, Object> data1 = Parser.getData("src/test/resources/file1.yml");
         Map<String, Object> data2 = Parser.getData("src/test/resources/file2.yml");
-        String expected = readFixture("expected_stylish.txt");
-        String actual = Differ.generate(data1, data2);
-        assertEquals(expected, actual);
+        String expectedStylish = readFixture("expected_stylish.txt");
+        String actualStylish = Differ.generate(data1, data2, "stylish");
+
+        String expectedPlain = readFixture("expected_plain.txt");
+        String actualPlain = Differ.generate(data1, data2, "plain");
+
+        assertEquals(expectedStylish, actualStylish);
+        assertEquals(expectedPlain, actualPlain);
     }
 
     @Test
-    void testFlatYamlDiffStylish() throws Exception {
+    void testYamlDiffStylish() throws Exception {
         Map<String, Object> data1 = Parser.getData("src/test/resources/file1.yaml");
         Map<String, Object> data2 = Parser.getData("src/test/resources/file2.yaml");
-        String expected = readFixture("expected_stylish.txt");
-        String actual = Differ.generate(data1, data2);
-        assertEquals(expected, actual);
+        String expectedStylish = readFixture("expected_stylish.txt");
+        String actualStylish = Differ.generate(data1, data2, "stylish");
+
+        String expectedPlain = readFixture("expected_plain.txt");
+        String actualPlain = Differ.generate(data1, data2, "plain");
+
+        assertEquals(expectedStylish, actualStylish);
+        assertEquals(expectedPlain, actualPlain);
     }
 }

@@ -40,7 +40,6 @@ public class StylishFormatter implements Formatter {
                             .append("\n");
                 }
                 case "nested" -> {
-                    @SuppressWarnings("unchecked")
                     List<Map<String, Object>> subObject = (List<Map<String, Object>>) item.get("subObject");
                     result.append("{")
                             .append(key)
