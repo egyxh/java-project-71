@@ -62,6 +62,10 @@ tasks.sonar {
 }
 
 tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+    }
     mustRunAfter(tasks.test)
     dependsOn(tasks.test)
 }
@@ -81,5 +85,6 @@ sonar {
     properties {
         property("sonar.projectKey", "egyxh_java-project-71")
         property("sonar.organization", "egyxh")
+        property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
