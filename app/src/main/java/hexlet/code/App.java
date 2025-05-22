@@ -28,7 +28,7 @@ public class App implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() {
+    public final Integer call() {
         try {
             Map<String, Object> data1 = Parser.getData(filepath1);
             Map<String, Object> data2 = Parser.getData(filepath2);

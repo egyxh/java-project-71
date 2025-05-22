@@ -6,7 +6,7 @@ import java.util.Map;
 public class StylishFormatter implements Formatter {
     @Override
     @SuppressWarnings("unchecked")
-    public String format(List<Map<String, Object>> diff) throws IllegalStateException {
+    public final String format(List<Map<String, Object>> diff) throws IllegalStateException {
         StringBuilder result = new StringBuilder("{\n");
         for (Map<String, Object> item : diff) {
             String key = (String) item.get("key");

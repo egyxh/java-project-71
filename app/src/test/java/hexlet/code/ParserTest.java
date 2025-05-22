@@ -9,6 +9,8 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParserTest {
+    public final static int EXPECTED_VALUE = 42;
+
     @Test
     void testParseJson() throws Exception {
         String jsonContent = "{\"key\":\"value\", \"number\": 42}";
@@ -18,7 +20,7 @@ class ParserTest {
         Map<String, Object> result = Parser.getData(tempFile.toString());
 
         assertEquals("value", result.get("key"));
-        assertEquals(42, result.get("number"));
+        assertEquals(EXPECTED_VALUE, result.get("number"));
     }
 
     @Test
@@ -30,7 +32,7 @@ class ParserTest {
         Map<String, Object> result = Parser.getData(tempFile.toString());
 
         assertEquals("value", result.get("key"));
-        assertEquals(42, result.get("number"));
+        assertEquals(EXPECTED_VALUE, result.get("number"));
     }
 
     @Test
@@ -42,6 +44,6 @@ class ParserTest {
         Map<String, Object> result = Parser.getData(tempFile.toString());
 
         assertEquals("value", result.get("key"));
-        assertEquals(42, result.get("number"));
+        assertEquals(EXPECTED_VALUE, result.get("number"));
     }
 }
