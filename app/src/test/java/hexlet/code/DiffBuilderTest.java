@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DiffBuilderTest {
+class DiffBuilderTest {
     @Test
     void testDiffBuilder() {
         Map<String, Object> mapOne = new HashMap<String, Object>();

@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UtilsTest {
+class UtilsTest {
     @Test
     void getExtensionTest() {
         assertEquals("json", Utils.getExtension(Paths.get("file.json")));

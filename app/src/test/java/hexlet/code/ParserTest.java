@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ParserTest {
+class ParserTest {
     @Test
     void testParseJson() throws Exception {
         String jsonContent = "{\"key\":\"value\", \"number\": 42}";
