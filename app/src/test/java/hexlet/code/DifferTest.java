@@ -21,17 +21,25 @@ class DifferTest {
         String expectedStylish = readFixture("expected_stylish.txt");
         String actualStylish = Differ.generate(data1, data2, "stylish");
 
+        String expectedJson = readFixture("expected_json.txt");
+        String actualJson = Differ.generate(data1, data2, "json");
+
         String expectedPlain = readFixture("expected_plain.txt");
         String actualPlain = Differ.generate(data1, data2, "plain");
 
         assertEquals(expectedStylish, actualStylish);
         assertEquals(expectedPlain, actualPlain);
+        assertEquals(expectedJson, actualJson);
     }
 
     @Test
     void testYmlDiffStylish() throws Exception {
         Map<String, Object> data1 = Parser.getData("src/test/resources/file1.yml");
         Map<String, Object> data2 = Parser.getData("src/test/resources/file2.yml");
+
+        String expectedJson = readFixture("expected_json.txt");
+        String actualJson = Differ.generate(data1, data2, "json");
+
         String expectedStylish = readFixture("expected_stylish.txt");
         String actualStylish = Differ.generate(data1, data2, "stylish");
 
@@ -40,12 +48,17 @@ class DifferTest {
 
         assertEquals(expectedStylish, actualStylish);
         assertEquals(expectedPlain, actualPlain);
+        assertEquals(expectedJson, actualJson);
     }
 
     @Test
     void testYamlDiffStylish() throws Exception {
         Map<String, Object> data1 = Parser.getData("src/test/resources/file1.yaml");
         Map<String, Object> data2 = Parser.getData("src/test/resources/file2.yaml");
+
+        String expectedJson = readFixture("expected_json.txt");
+        String actualJson = Differ.generate(data1, data2, "json");
+
         String expectedStylish = readFixture("expected_stylish.txt");
         String actualStylish = Differ.generate(data1, data2, "stylish");
 
@@ -54,5 +67,6 @@ class DifferTest {
 
         assertEquals(expectedStylish, actualStylish);
         assertEquals(expectedPlain, actualPlain);
+        assertEquals(expectedJson, actualJson);
     }
 }
