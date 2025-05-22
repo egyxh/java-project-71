@@ -9,7 +9,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParserTest {
-    public final static int EXPECTED_VALUE = 42;
+    public static final int EXPECTED_VALUE = 42;
 
     @Test
     void testParseJson() throws Exception {

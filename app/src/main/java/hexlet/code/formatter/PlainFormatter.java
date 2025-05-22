@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class PlainFormatter implements Formatter {
+public final class PlainFormatter implements Formatter {
     @Override
-    public final String format(List<Map<String, Object>> diff) throws IllegalStateException {
+    public String format(List<Map<String, Object>> diff) throws IllegalStateException {
         StringBuilder result = new StringBuilder();
         Set<String> processedKeys = new HashSet<>();
         for (Map<String, Object> item : diff) {
@@ -36,7 +36,7 @@ public class PlainFormatter implements Formatter {
     }
 
     private String formatAdded(String key, Object value) {
-        return String.format("Property '%s' was added with value: %s\n", key, toPainValue(value));
+        return String.format("Property '%s' was added with value: %s\n", key, toPlainValue(value));
     }
 
     private String formatRemoved(String key) {
@@ -44,12 +44,12 @@ public class PlainFormatter implements Formatter {
     }
 
     private String formatChanged(String key, Object oldValue, Object newValue) {
-        return String.format("Property '%s' was updated. From %s to %s\n", key, toPainValue(oldValue),
-                toPainValue(newValue));
+        return String.format("Property '%s' was updated. From %s to %s\n", key, toPlainValue(oldValue),
+                toPlainValue(newValue));
     }
 
 
-    public String toPainValue(Object value) {
+    public String toPlainValue(Object value) {
         if (value == null) {
             return "null";
         } else if (value instanceof String) {
