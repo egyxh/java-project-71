@@ -5,7 +5,6 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.util.Map;
 import java.util.concurrent.Callable;
 
 @Command(
@@ -30,9 +29,7 @@ public class App implements Callable<Integer> {
     @Override
     public final Integer call() {
         try {
-            Map<String, Object> data1 = Parser.getData(filepath1);
-            Map<String, Object> data2 = Parser.getData(filepath2);
-            String diff = Differ.generate(data1, data2, format);
+            String diff = Differ.generate(filepath1, filepath2, format);
             System.out.println(diff);
             return 0;
         } catch (Exception e) {

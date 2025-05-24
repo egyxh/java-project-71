@@ -10,15 +10,18 @@ import java.util.Map;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2) throws Exception {
-        Map<String, Object> data1 = Parser.getData(filePath1);
-        Map<String, Object> data2 = Parser.getData(filePath2);
-        return generate(data1, data2, "stylish");
+        return generate(filePath1, filePath2, "stylish");
 
     }
 
     public static String generate(String filePath1, String filePath2, String style) throws Exception {
-        Map<String, Object> data1 = Parser.getData(filePath1);
-        Map<String, Object> data2 = Parser.getData(filePath2);
+        String dataOne = Utils.readData(filePath1);
+        String dataTwo = Utils.readData(filePath2);
+        String extensionOne = Utils.getExtension(filePath1);
+        String extensionTwo = Utils.getExtension(filePath2);
+
+        Map<String, Object> data1 = Parser.getData(dataOne, extensionOne);
+        Map<String, Object> data2 = Parser.getData(dataTwo, extensionTwo);
         return generate(data1, data2, style);
     }
 
