@@ -7,6 +7,6 @@ public class FormatSelector {
             case "plain" -> new PlainFormatter();
             case "json" -> new JsonFormatter();
             default -> throw new IllegalArgumentException("Unsupported format: " + format);
-        }
+        };
     }
 }
