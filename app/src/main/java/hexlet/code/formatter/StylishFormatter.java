@@ -6,7 +6,7 @@ import java.util.Map;
 public class StylishFormatter implements Formatter {
     @Override
     @SuppressWarnings("unchecked")
-    public final String format(List<Map<String, Object>> diff) throws IllegalStateException {
+    public final String format(List<Map<String, Object>> diff) throws IllegalArgumentException {
         StringBuilder result = new StringBuilder("{\n");
         for (Map<String, Object> item : diff) {
             String key = (String) item.get("key");
@@ -48,7 +48,7 @@ public class StylishFormatter implements Formatter {
                             .append(format(subObject))
                             .append("\n");
                 }
-                default -> throw new IllegalStateException("Unexpected value: " + status);
+                default -> throw new IllegalArgumentException("Unexpected value: " + status);
             }
         }
         result.append("}");
@@ -58,9 +58,6 @@ public class StylishFormatter implements Formatter {
     private String formatValue(Object value) {
         if (value == null) {
             return "null";
-        }
-        if (value instanceof Map || value instanceof List) {
-            return value.toString();
         }
         return value.toString();
     }

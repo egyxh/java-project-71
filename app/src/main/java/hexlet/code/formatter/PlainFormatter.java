@@ -7,7 +7,7 @@ import java.util.Set;
 
 public final class PlainFormatter implements Formatter {
     @Override
-    public String format(List<Map<String, Object>> diff) throws IllegalStateException {
+    public String format(List<Map<String, Object>> diff) throws IllegalArgumentException {
         StringBuilder result = new StringBuilder();
         Set<String> processedKeys = new HashSet<>();
         for (Map<String, Object> item : diff) {

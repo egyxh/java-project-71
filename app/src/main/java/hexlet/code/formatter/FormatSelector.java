@@ -10,7 +10,7 @@ public class FormatSelector {
                 default -> throw new IllegalArgumentException("Unsupported format: " + format);
             };
         } catch (Exception e) {
-            throw new IllegalStateException(e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 }
