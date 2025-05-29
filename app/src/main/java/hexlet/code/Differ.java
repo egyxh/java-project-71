@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Differ {
+    public static final String DEFAULT_STYLE = "stylish";
     public static String generate(String filePath1, String filePath2) {
-        return generate(filePath1, filePath2, "stylish");
+        return generate(filePath1, filePath2, DEFAULT_STYLE);
 
     }
 
